@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+By Josh Hughes (josh@josh-hughes.com). Feedback is welcome!
+
+INSTALLATION:
+Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Application Support/OmniFocus (or for version 2: ~/Library/Containers/com.omnigroup.OmniFocus2/Data/Library/Application Support/OmniFocus)
+-->
+<meta charset="utf-8" />
+<style type="text/css">
+    *,
+    *:after,
+    *:before {
+        box-sizing: border-box;
+    }
+    
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        background: #fff;
+        color: #000;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700px;
+        margin: 0 0 1rem 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    h2.folder {
+        border-bottom: 5px solid #f5f5f5;
+        font-size: 1.6rem;
+        padding-bottom: 0.25rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+        font-weight: 400;
+        margin: 0 0 0.125rem 0;
+    }
+
+    h4.projecttitle {
+        font-weight: 600;
+    }
+
+    .actionlist {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .action ~ .actionlist {
+        padding-left: 3rem;
+    }
+
+    .action {
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: 36px 1fr;
+        margin: 0 0 1rem 0;
+        position: relative;
+    }
+    
+    .action:before {
+        border: 5px solid #d9d9d9;
+        border-radius: 50%;
+        content: ' ';
+        display: inline-block;
+        height: 36px;
+        width: 36px;
+    }
+    
+    .action.completed:before {
+        background: #d9d9d9;
+    }
+    
+    .action.completed:after {
+        border-bottom: 6px solid #565656;
+        border-left: 6px solid #565656;
+        content: ' ';
+        height: 11px;
+        left: 8px;
+        position: absolute;
+        top: 8px;
+        transform: rotate(-45deg);
+        width: 25px;
+    }
+    
+    .action.completed .dates {
+        display: none; // No longer relevant
+    }
+
+    .actioninfo {
+        overflow: hidden;
+    }
+    
+    .context,
+    .count,
+    .printdate,
+    .projectcount {
+        color: #999;
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+    
+    .context {
+        background: #e6e6e6;
+        border-radius: 0.5rem;
+        color: #808080;
+        display: inline;
+        float: left;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.125rem 0.5rem;
+    }
+    
+    span.context {
+        display: none; // dot separator
+    }
+    
+    .count,
+    .printdate {
+        display: block;
+    }
+    
+    .dates {
+        color: #999;
+        float: right;
+        font-size: 0.75rem;
+        padding-top: 0.125rem;
+    }
+    
+    .project {
+        color: #666;
+        display: inline;
+        font-size: 0.75rem;
+        float: left;
+        margin-right: 0.5rem;
+        padding-top: 0.125rem;
+    }
+    
+    .notes {
+        clear: both;
+        color: #666;
+        font-size: 0.75rem;
+        padding-top: 0.25rem;
+    }
+    
+    .notes p {
+        margin: 0 0 0.5rem 0;
+    }
+    
+    @media print {
+        li {
+            page-break-inside: avoid;
+        }
+        
+        h2.folder {
+            border-color: #ccc;
+        }
+        
+        .count,
+        .printdate,
+        .context,
+        .dates,
+        .project,
+        .notes {
+            color: #333;
+        }
+        
+        .context {
+            background: none;
+            border: 1px solid #ccc;
+        }
+    }
+</style>
+</head>
+<body>
+<!--$BODY-->
+<script>
+var headings = document.querySelectorAll('h2');
+for (var i = 0; i < headings.length; i++) {
+    if (!headings[i].querySelector('.count')) {
+        headings[i].className = 'folder';
+    }
+}
+
+var checkmarks = document.querySelectorAll('.checkmark');
+for (var i = 0; i < checkmarks.length; i++) {
+    var action = checkmarks[i].parentNode;
+    action.classList.add('completed');
+    action.removeChild(checkmarks[i]);
+}
+
+var dates = document.querySelectorAll('.dates');
+for (var i = 0; i < dates.length; i++) {
+    dates[i].textContent = dates[i].textContent.replace('→', ' → ');
+}
+</script>
+</body>
+</html>
