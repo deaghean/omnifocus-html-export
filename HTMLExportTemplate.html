@@ -191,6 +191,11 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
 <body>
 <!--$BODY-->
 <script>
+// Remove 'OmniFocus: ' from title (probably unnecessary for a print out)
+var title = document.querySelector('#docheader h1');
+title.innerHTML = title.innerHTML.replace('OmniFocus: ', '');
+
+// Add class to folders
 var headings = document.querySelectorAll('h2');
 for (var i = 0; i < headings.length; i++) {
     if (!headings[i].querySelector('.count')) {
@@ -198,6 +203,7 @@ for (var i = 0; i < headings.length; i++) {
     }
 }
 
+// Identify completed tasks
 var checkmarks = document.querySelectorAll('.checkmark');
 for (var i = 0; i < checkmarks.length; i++) {
     var action = checkmarks[i].parentNode;
@@ -205,6 +211,7 @@ for (var i = 0; i < checkmarks.length; i++) {
     action.removeChild(checkmarks[i]);
 }
 
+// Minor formatting for dates
 var dates = document.querySelectorAll('.dates');
 for (var i = 0; i < dates.length; i++) {
     dates[i].textContent = dates[i].textContent.replace('→', ' → ');
