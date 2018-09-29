@@ -79,8 +79,8 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
         border-radius: 50%;
         content: ' ';
         display: inline-block;
-        height: 36px;
-        width: 36px;
+        height: 32px;
+        width: 32px;
     }
     
     .action.completed:before {
@@ -91,12 +91,12 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
         border-bottom: 6px solid #565656;
         border-left: 6px solid #565656;
         content: ' ';
-        height: 11px;
+        height: 12px;
         left: 8px;
         position: absolute;
-        top: 8px;
+        top: 7px;
         transform: rotate(-45deg);
-        width: 25px;
+        width: 22px;
     }
     
     .action.completed .dates {
@@ -165,6 +165,10 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
     }
     
     @media print {
+        @page {
+            margin: 0;
+        }
+        
         li {
             page-break-inside: avoid;
         }
@@ -216,6 +220,12 @@ for (var i = 0; i < checkmarks.length; i++) {
 var dates = document.querySelectorAll('.dates');
 for (var i = 0; i < dates.length; i++) {
     dates[i].textContent = dates[i].textContent.replace('→', ' → ');
+}
+
+// Add line breaks to notes
+var notes = document.querySelectorAll('.notes p');
+for (var i = 0; i < notes.length; i++) {
+    notes[i].innerHTML = notes[i].innerHTML.replace(/\n/g, '<br />');
 }
 </script>
 </body>
