@@ -10,3 +10,9 @@ OmniFocus 2 and 3 for Mac supports custom templates for both HTML export and pri
 2. Depending on your version of OmniFocus, place the file in either the `~/Library/Containers/com.omnigroup.OmniFocus2/Data/Library/Application Support/OmniFocus` or `~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Application Support/OmniFocus` directories.
 
 Once that's done, printing and HTML exports will use the template. Feedback and suggestions are welcome: [josh@josh-hughes.com](mailto:josh@josh-hughes.com). Also, be sure to check out my [custom perspective icon project](https://omnifocusicons.josh-hughes.com).
+
+## Optional: Compact Layout
+
+![Screenshot of HTML Output](screenshot.compact.jpg)
+
+There is also a compact layout for those who would like a slightly smaller print footprint. You will need to rename the file `HTMLExportTemplate.compact.html` to `HTMLExportTemplate.html` before placing the file in the above folder(s).
