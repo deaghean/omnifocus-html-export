@@ -16,40 +16,45 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
     }
     
     html {
-        font-size: 14px;
+        font-size: 10px; /* Increasing/Decreasing this affects whole interface */
+        margin: 0;
+        padding: 0;
     }
     
     body {
         background: #fff;
         color: #000;
-        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
-        padding: 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.2;
+        padding: 2rem;
     }
 
-    h1 {
-        font-size: 2rem;
-        font-weight: 700px;
-        margin: 0 0 1rem 0;
+    h1 { /* Page title */
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0 0 2rem 0;
     }
 
-    h2 {
-        font-size: 1.2rem;
-    }
-    
-    h2.folder {
-        border-bottom: 5px solid #f5f5f5;
+    h2 { /* Projects */
         font-size: 1.6rem;
-        padding-bottom: 0.25rem;
     }
     
-    h3 {
+    h2.folder { /* Folders */
+        border-bottom: 4px solid #f5f5f5;
+        font-size: 2rem;
+        font-weight: 700;
+        padding-bottom: 0.3rem;
+    }
+    
+    h3 { /* Subheadings (like Forecast's Due/Deferred/Tagged) */
         font-size: 1.4rem;
     }
 
-    h4 {
-        font-size: 1rem;
+    h4 { /* Action Titles */
+        float: left;
+        font-size: 1.3rem;
         font-weight: 400;
-        margin: 0 0 0.125rem 0;
+        margin: 0 1rem 0.4rem 0;
     }
 
     h4.projecttitle {
@@ -62,25 +67,25 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
         padding: 0;
     }
     
-    .action ~ .actionlist {
-        padding-left: 44px;
+    .action ~ .actionlist { /* Indicates a subtask */
+        padding-left: 2.5rem;
     }
 
     .action {
         display: grid;
-        grid-gap: 8px;
-        grid-template-columns: 36px 1fr;
+        grid-gap: 0.8rem;
+        grid-template-columns: 1.7rem 1fr;
         margin: 0 0 1rem 0;
         position: relative;
     }
     
     .action:before {
-        border: 5px solid #d9d9d9;
+        border: 0.2rem solid #d9d9d9;
         border-radius: 50%;
         content: ' ';
         display: inline-block;
-        height: 32px;
-        width: 32px;
+        height: 1.7rem;
+        width: 1.7rem;
     }
     
     .action.completed:before {
@@ -88,23 +93,19 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
     }
     
     .action.completed:after {
-        border-bottom: 6px solid #565656;
-        border-left: 6px solid #565656;
+        border-bottom: 0.3rem solid #565656;
+        border-left: 0.3rem solid #565656;
         content: ' ';
-        height: 12px;
-        left: 8px;
+        height: 0.6rem;
+        left: 0.5rem;
         position: absolute;
-        top: 7px;
+        top: 0.4rem;
         transform: rotate(-45deg);
-        width: 22px;
+        width: 1.1rem;
     }
     
     .action.completed .dates {
-        display: none; // No longer relevant
-    }
-
-    .actioninfo {
-        overflow: hidden;
+        display: none; /* Not the completion date, so not terribly relevant */
     }
     
     .context,
@@ -112,61 +113,68 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
     .printdate,
     .projectcount {
         color: #999;
-        font-size: 0.75rem;
+        font-size: 1.1rem;
         font-weight: 600;
     }
     
     .context {
-        background: #e6e6e6;
-        border-radius: 0.5rem;
         color: #808080;
-        display: inline;
-        float: left;
-        font-size: 0.75rem;
+        display: inline-block;
+        font-size: 1.1rem;
         font-weight: 600;
-        padding: 0.125rem 0.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .context .tag {
+        background: #e6e6e6;
+        border: 1px solid #e6e6e6;
+        border-radius: 0.7rem;
+        display: inline-block;
+        margin-right: 0.5rem;
+        margin-top: -1px;
+        padding: 0.1rem 0.7rem;
     }
     
     span.context {
-        display: none; // dot separator
+        display: none; /* dot separator */
     }
     
     .count,
     .printdate {
         display: block;
-        margin-top: 0.2rem;
+        margin-top: 0.1rem;
     }
     
     .dates {
         color: #999;
         float: right;
-        font-size: 0.75rem;
-        padding-top: 0.125rem;
+        font-size: 1.1rem;
+        padding-top: 0.2rem;
     }
     
     .project {
         color: #666;
-        display: inline;
-        font-size: 0.75rem;
-        float: left;
+        display: inline-block;
+        font-size: 1.1rem;
         margin-right: 0.5rem;
-        padding-top: 0.125rem;
+        padding-top: 0.2rem;
     }
     
     .notes {
         clear: both;
         color: #666;
-        font-size: 0.75rem;
-        padding-top: 0.25rem;
+        font-size: 1.1rem;
+        padding-top: 0.4rem;
     }
     
     .notes p {
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 1rem 0;
     }
     
     @media print {
         @page {
             margin: 0;
+            padding: 0;
         }
         
         li {
@@ -176,19 +184,20 @@ Place this file in ~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Ap
         h2.folder {
             border-color: #ccc;
         }
-        
+
         .count,
         .printdate,
         .context,
+        .context .tag,
         .dates,
         .project,
         .notes {
-            color: #333;
+            color: #666;
         }
         
-        .context {
+        .context .tag {
             background: none;
-            border: 1px solid #ccc;
+            border-color: #ccc;
         }
     }
 </style>
@@ -226,6 +235,12 @@ for (var i = 0; i < dates.length; i++) {
 var notes = document.querySelectorAll('.notes p');
 for (var i = 0; i < notes.length; i++) {
     notes[i].innerHTML = notes[i].innerHTML.replace(/\n/g, '<br />');
+}
+
+// Split tags up by comma
+var tags = document.querySelectorAll('.context');
+for (var i = 0; i < tags.length; i++) {
+    tags[i].innerHTML = tags[i].innerHTML.replace(/([^,]+)[, ]*/g, '<span class="tag">$1</span>');
 }
 </script>
 </body>
