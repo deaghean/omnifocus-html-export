@@ -9,7 +9,11 @@ OmniFocus 2 and 3 for Mac supports custom templates that are used for both HTML 
 ### Installation Instructions
 
 1. [Download this file](https://raw.githubusercontent.com/deaghean/omnifocus-html-export/master/standard/HTMLExportTemplate.html). You can save it from your browser as HTML. The file needs to be named `HTMLExportTemplate.html`.
-2. Depending on your version of OmniFocus, place the file in either the `~/Library/Containers/com.omnigroup.OmniFocus2/Data/Library/Application Support/OmniFocus` or `~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Application Support/OmniFocus` directories.
+2. Where you should place the file depends on your version of OmniFocus, and where you bought it:
+    - OmniFocus 3 (Direct): `~/Library/Containers/com.omnigroup.OmniFocus3/Data/Library/Application Support/OmniFocus`
+    - OmniFocus 3 (Mac App Store): `~/Library/Containers/com.omnigroup.OmniFocus3.MacAppStore/Data/Library/Application Support/OmniFocus`
+    - OmniFocus 2 (Direct): `~/Library/Containers/com.omnigroup.OmniFocus2/Data/Library/Application Support/OmniFocus`
+    - OmniFocus 2 (Mac App Store): `~/Library/Containers/com.omnigroup.OmniFocus2.MacAppStore/Data/Library/Application Support/OmniFocus`
 
 Once that's done, printing and HTML exports will use the template.
 
